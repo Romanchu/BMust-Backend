@@ -8,19 +8,19 @@ mainRouter.get('/', (_, res) => {
 const producto_y_mercancia = [
     {
         nombre: "Campera",
-        modelo: "Nike",
+        modelo: "nike",
         precio: 100,
         pais_de_origen: "Estados Unidos"
     },
     {
         nombre: "Pantalon",
-        modelo: "Adidas",
+        modelo: "adidas",
         precio: 50,
         pais_de_origen: "Estados Unidos"
     },
     {
         nombre: "Reloj",
-        modelo: "Rolex",
+        modelo: "rolex",
         precio: 150,
         pais_de_origen: "Inglaterra"
     }
@@ -41,18 +41,17 @@ mainRouter.get('/precio', (_,res) =>{
 
 //3//
 
-mainRouter.post('modificar/:modeloAModificar', (req, res) => {
-    const { modeloAModificar } = req.body.modelo;
+mainRouter.put('/modificarProductos/:Modelo', (req, res) => {
+    const { Modelo } = req.params;
+    const nuevoProducto = req.body;
 
-    const nuevoProducto = req.body.producto; 
+    const productoExistente = producto_y_mercancia.find((producto) => producto.modelo === Modelo);
 
-    const indiceAModificar = producto_y_mercancia.findIndex(producto => producto.modelo === String(modeloAModificar));
-    
-    if (indiceAModificar === -1) {
-        res.status(404).send('No se encontró un producto con el modelo especificado.');
+    if (!productoExistente) {
+        res.status(400).json({ error: 'El producto no existe' });
     } else {
-        producto_y_mercancia[indiceAModificar] = nuevoProducto;
-        res.send('Producto modificado con éxito.');
+        Object.assign(productoExistente, nuevoProducto);
+        res.status(201).send({ message: 'Producto modificado con éxito', producto: productoExistente });
     }
 });
 
@@ -67,7 +66,7 @@ mainRouter.get('/eliminar/:eliminarModelo', (req, res) => {
         res.status(404).send('No se encontró un producto con el modelo especificado.');
     } else {
         producto_y_mercancia.splice(indiceParaEliminar, 1);
-        res.send('Producto eliminado con éxito.');
+        res.status(201).send('Producto eliminado con éxito.');
     }
 });
 
@@ -101,5 +100,11 @@ mainRouter.get('/precio/:precioFiltrado', (req, res) => {
 
 //7//
 
+mainRouter.post('/crearProductos', (req, res) => {
+    const getProduct = req.body;
+    producto_y_mercancia.push(getProduct);
+    console.log(producto_y_mercancia);
+    res.status(201).send(producto_y_mercancia);
+});
 
 export { mainRouter };
