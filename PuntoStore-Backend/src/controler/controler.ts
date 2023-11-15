@@ -21,16 +21,16 @@ const producto_y_mercancia = [
     }
 ];
 
-export function getProducts(_: Request, res: Response) {
+export async function getProducts(_: Request, res: Response) {
     res.send(producto_y_mercancia);
 };
 
-export function price100 (_:Request, res:Response){
+export async function price100 (_:Request, res:Response){
     const mayor100 = producto_y_mercancia.filter(producto => producto.precio > 99);
     res.send(mayor100)
 };
 
-export function modifyProducts (req:Request, res:Response){
+export async function modifyProducts (req:Request, res:Response){
     const { Modelo } = req.params;
     const nuevoProducto = req.body;
 
@@ -44,7 +44,7 @@ export function modifyProducts (req:Request, res:Response){
     }
 };
 
-export function countryFilter(req:Request, res:Response){
+export async function countryFilter(req:Request, res:Response){
     const { paisFiltrado } = req.params;
 
     const productosPorPais = producto_y_mercancia.filter(producto => producto.pais_de_origen === paisFiltrado);
@@ -56,7 +56,7 @@ export function countryFilter(req:Request, res:Response){
     }
 };
 
-export function deleteProduct (req:Request, res:Response){
+export async function deleteProduct (req:Request, res:Response){
     const { eliminarModelo } = req.params;
 
     const indiceParaEliminar = producto_y_mercancia.findIndex(producto => producto.modelo === eliminarModelo);
@@ -69,7 +69,7 @@ export function deleteProduct (req:Request, res:Response){
     }
 };
 
-export function priceFilter (req:Request, res:Response){
+export async function priceFilter (req:Request, res:Response){
     const {precioFiltrado} = req.params;
 
     const productosPorPrecio = producto_y_mercancia.filter(producto => producto.precio === parseInt(precioFiltrado));
@@ -81,9 +81,11 @@ export function priceFilter (req:Request, res:Response){
     }
 };
 
-export function createProduct (req:Request, res:Response){
+export async function createProduct (req:Request, res:Response){
     const getProduct = req.body;
     producto_y_mercancia.push(getProduct);
     console.log(producto_y_mercancia);
     res.status(201).send(producto_y_mercancia);
 };
+
+
