@@ -1,0 +1,9 @@
+hasta ahora a base de datos se crea pero las tablas no.
+comandos para verificar la creacion de base de datos:
+1. docker run -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=PuntoStoreDB -p 3307:3306 mysql
+2. docker ps
+3. docker exec -it {codigo q da el comando anterior} bash
+4. mysql -u root -p
+5. show databases;
+6. use PuntoStoreDB
+7. show tables;

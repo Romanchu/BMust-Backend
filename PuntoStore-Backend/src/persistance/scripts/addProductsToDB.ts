@@ -3,10 +3,7 @@ import { Product } from "../product";
 
 export const addProductsToDB = async () => {
     db.map(async (p: Producto) => {
-        const newProduct = new Product();
-        newProduct.name = p.name;
-        newProduct.photo = p.photo;
-        newProduct.price = p.price;
+        const newProduct = new Product(p.name, p.price);
         await AppDataSource.manager.save(newProduct);
     });
 }
