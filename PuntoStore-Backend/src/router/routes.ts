@@ -1,6 +1,5 @@
 import express from 'express';
-import { getProducts } from '../controler/controler';
-import { addProductsToDB } from '../persistance/scripts/addProductsToDB';
+import { addProductsToDB, getProducts } from '../controler/controler';
 const mainRouter = express.Router();
 
 mainRouter.get('/', (_, res) => {

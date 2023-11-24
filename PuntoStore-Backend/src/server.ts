@@ -1,6 +1,5 @@
 import express from 'express';
 import { AppDataSource } from './persistance/db';
-import { addProductsToDB } from './persistance/scripts/addProductsToDB';
 import { mainRouter } from './router/routes';
 
 const app = express();
@@ -22,4 +21,3 @@ AppDataSource.initialize()
         throw err
     });
 
-addProductsToDB()

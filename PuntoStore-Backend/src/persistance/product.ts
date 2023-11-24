@@ -10,9 +10,7 @@ export class Product {
     })
     name!: String
 
-    @Column({
-        length: 100,
-    })
+    @Column({})
     price!: Number
 
 
