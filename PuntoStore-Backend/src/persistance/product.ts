@@ -3,18 +3,18 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 @Entity()
 export class Product {
     @PrimaryGeneratedColumn()
-    id!: Number
+    id!: number
 
     @Column({
         length: 100,
     })
-    name!: String
+    name!: string
 
     @Column({})
-    price!: Number
+    price!: number
 
 
-    constructor(name: String, price: Number) {
+    constructor(name: string, price: number) {
         this.name = name;
         this.price = price;
     }

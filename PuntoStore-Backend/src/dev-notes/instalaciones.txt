@@ -1,0 +1,4 @@
+para correr cloudbeaber
+1. instalar docker-compose.yml del repo del profe
+2. correr el comando docker compose up -d
+3. ingresar con las credenciales creadas

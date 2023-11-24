@@ -1,6 +1,8 @@
 import { DataSource } from "typeorm"
 import { Product } from "./product"
+import { User } from "./user"
 import "reflect-metadata"
+
 
 export const AppDataSource = new DataSource({
     type: 'mysql',
@@ -11,15 +13,22 @@ export const AppDataSource = new DataSource({
     database: 'PuntoStoreDB',
     synchronize: true,
     logging: true,
-    entities: [Product],
+    entities: [Product, User],
     subscribers: [],
     migrations: []
 })
 
 export type Producto = {
-    id: Number
-    name: String
-    price: Number
+    id: number
+    name: string
+    price: number
+}
+
+export type Usuario = {
+    id: number
+    name: string
+    email: string
+    password: string
 }
 
 export const db:Array <Producto> = [
