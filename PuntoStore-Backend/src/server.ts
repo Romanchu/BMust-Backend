@@ -7,12 +7,16 @@ import  cors from 'cors';
 
 const app = express();
 const port = 8080;
-
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            
+    optionSuccessStatus:200
+}   
+    
 app.use(express.json());
 app.use ('/' , mainRouter);
-app.use (cors());
+app.use (cors(corsOptions));
 
-// docker run -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=PuntoStoreDB -p 3307:3306 mysql
 
 AppDataSource.initialize()
     .then(async() => {

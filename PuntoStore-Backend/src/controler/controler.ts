@@ -35,7 +35,7 @@ export const loginUser = async (req: Request, res: Response) => {
     } else {
         res.status(401).json({
             success: false,
-            msg: "Failed to log i"
+            msg: "Failed to log in"
         })
     }
 }

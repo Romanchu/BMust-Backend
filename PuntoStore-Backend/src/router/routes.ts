@@ -11,4 +11,4 @@ mainRouter.post('/producto/:añadir', addProductsToDB);
 mainRouter.post('/registro', addUserToDB);
 mainRouter.post('/login', loginUser)
 
-export { mainRouter };
+export { mainRouter };  
