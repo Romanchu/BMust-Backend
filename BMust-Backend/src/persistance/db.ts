@@ -9,7 +9,7 @@ export const AppDataSource = new DataSource({
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: '1234',
+    password: '',
     database: 'bmustdb',
     synchronize: true,
     logging: true,
@@ -37,7 +37,7 @@ export type Usuario = {
 export const db:Array <Producto> = [
     {
         id: 1,
-        img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+        img: 'https://sublitextil.com.ar/wp-content/uploads/2022/08/pad-gamer-Sublimable-28x60cm.png',
         name: "Pad",
         price: 80,
         quantity: 1,
