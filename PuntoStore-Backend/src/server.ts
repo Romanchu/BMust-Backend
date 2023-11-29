@@ -26,12 +26,11 @@ AppDataSource.initialize()
         const validation_product = AppDataSource.manager.getRepository(Product)
         const product_exist = await validation_product.find()
         if (product_exist.length == 0){
-            const product1 = new Product('https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',"Zapatos Nike", 80, 1);
-            const product2 = new Product('https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1099&q=80', "Reloj", 50, 1);
-            const product3 = new Product('https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80', "Smartwatch", 90, 1);
-            const product4 = new Product('https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80', "Perfume", 50, 1);
-            const product5 = new Product('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80', "Audífonos", 20, 1);
-            AppDataSource.manager.save([product1, product2, product3, product4,product5])
+            const product1 = new Product('https://sublitextil.com.ar/wp-content/uploads/2022/08/pad-gamer-Sublimable-28x60cm.png',"Pad1", 500, 1);
+            const product2 = new Product('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFrSqZxdqKRusrBzBQ-9PVHjRXUNejZNS1Iw&usqp=CAU', "Pad2", 300, 1);
+            const product3 = new Product('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZvgSN6EDNJwuAahNhWgP4_BftCLbuHjq8Nw&usqp=CAU', "Pad3", 600, 1);
+            const product4 = new Product('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Q0cmgNGqFOn7k3IXmUAgDPEMOntAi-Avj7PyRFDDIZB0XDHcho_pDQ6lU2BAn02x4MY&usqp=CAU', "Pad4", 700, 1);
+            AppDataSource.manager.save([product1, product2, product3, product4])
             console.log(product_exist)
         }
 

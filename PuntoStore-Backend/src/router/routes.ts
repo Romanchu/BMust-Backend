@@ -9,6 +9,6 @@ mainRouter.get('/', (_, res) => {
 mainRouter.get('/producto', getProducts);
 mainRouter.post('/producto/:añadir', addProductsToDB);
 mainRouter.post('/registro', addUserToDB);
-mainRouter.post('/login', loginUser)
+mainRouter.get('/login', loginUser)
 
 export { mainRouter };  
